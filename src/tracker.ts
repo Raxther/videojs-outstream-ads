@@ -34,8 +34,14 @@ export function createTracker({ player, logger, display: { creative, ad } }: Bas
 
     tracker.on('complete', () => {
         player.trigger('adCompleteSent');
+        player.dispose();
     });
 
+    player.on('adCompleteSent', () => {
+        console.log('adCompleteSent');
+        player.dispose();
+    });
+    
     player.on('timeupdate', () => {
         tracker.setProgress(player.currentTime());
     });
