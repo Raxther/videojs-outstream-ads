@@ -166,6 +166,11 @@ export default function register(vjs: typeof videojs = videojs) {
                 displayVASTNative({ ...propsWithCreative, tracker: this.tracker });
             }
 
+            this.player.one('ended', () => {
+                // Destroy the player when the video ends
+                this.player.dispose();
+            });
+
             // Setup close button functionality
             if (this.options.showClose) {
                 this.player.el().appendChild(
