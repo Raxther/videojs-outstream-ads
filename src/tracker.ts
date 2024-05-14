@@ -36,8 +36,8 @@ export function createTracker({ player, logger, display: { creative, ad } }: Bas
         player.trigger('adCompleteSent');
     });
 
-    player.on('adCompleteSent', () => {
-        console.log('adCompleteSent');
+    player.on('adComplete', () => {
+        console.log('adComplete');
         player.dispose();
     });
     
