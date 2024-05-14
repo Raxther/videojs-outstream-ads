@@ -16,6 +16,7 @@ export function createTracker({ player, logger, display: { creative, ad } }: Bas
         logger.debug('Sending tracking impression...');
         player.trigger('adImpression');
         tracker.trackImpression();
+        player.dispose();
     });
 
     tracker.on('creativeView', () => {
