@@ -73,7 +73,7 @@ export default function register(vjs: typeof videojs = videojs) {
                 },
                 ...options?.adControls,
             };
-
+            console.log("adControls", adControls)
             this.options = {
                 ...{
                     adTagUrl: '',
@@ -87,6 +87,7 @@ export default function register(vjs: typeof videojs = videojs) {
                 ...options,
                 ...{ adControls },
             };
+            console.log("options", options)
 
             this.logger = getLogger(`prebid-outstream: ${this.player.id()}:`, this.options.debug);
             this.logger.debug('Starting pop plugin...');
